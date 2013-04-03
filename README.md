@@ -3,7 +3,7 @@ simple.carousel
 
 Copyright (c) 2012 Tobias Zeising, http://www.aditu.de
 Licensed under the MIT license
-Version 0.3
+Version 0.3.1
 
 This is a simple jQuery plugin for creating sliding carousels.
 
@@ -14,7 +14,6 @@ Demo/Examples
 [simple demo](http://public.aditu.de/simple.carousel/example.html)<br />
 [aditu.de (image will change using a fade in/fade out effect)](http://www.aditu.de/)<br />
 [rsslounge (presentation of the features by an slideshow)](http://rsslounge.aditu.de/)<br />
-
 
 Usage
 -----
@@ -63,7 +62,7 @@ Parameters
     <th>parameter</th><th>type</th><th>outcome</th>
   </tr>
   <tr>
-    <td>wdith</td><td>int</td><td>width of the single frames</td>
+    <td>width</td><td>int</td><td>width of the single frames</td>
   </tr>
   <tr>
     <td>height</td><td>int</td><td>height of the frames</td>
@@ -92,6 +91,9 @@ Parameters
   <tr>
     <td>pagination</td><td>int</td><td>set true for this value and a pagination element will be included</td>
   </tr>
+  <tr>
+	<td>slideevent</td><td>string</td><td>custom event name fired when slide changes; see Slide Event example</td>
+  </tr>
 </table>
 
 
@@ -108,3 +110,12 @@ $("#carousel").simplecarousel({
 </pre>
 
 Will create a carousel with fadein/fadeout effect. The pause between two frames will be 4 seconds, the speed of the fade effect will be 400 ms, the element with the class 'next' will be the next button (the same with 'prev' for back button). See download for further examples.
+
+Slide Event example
+--------
+The following will log the current slide index and the direction.
+<pre>
+$("#carousel").on('slide', function(e, config, dir){
+    console.log(config.current + ' ' + dir);
+});
+</pre>

@@ -21,7 +21,8 @@ $.fn.simplecarousel = function( params ) {
         items: 0,
         slidespeed: 600,
         visible: 1,
-        pagination: false
+        pagination: false,
+		slideevent: 'slide'		//custom event name to be triggered
     };
     var config = $.extend(defaults, params);
     
@@ -103,6 +104,9 @@ $.fn.simplecarousel = function( params ) {
             setTimeout(function() {
                 slide('next');
             }, config.auto);
+
+		//fire a custom event on the original element, sends the current config and direction
+		ul.trigger(config.slideevent, [config, dir]);
     }
     
     // include pagination
