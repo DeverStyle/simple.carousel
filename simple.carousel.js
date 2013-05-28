@@ -60,7 +60,7 @@ $.fn.simplecarousel = function( params ) {
     });
     
     // function for sliding the carousel
-    var slide = function(dir, click) {
+    var slide = this.slide = function(dir, click) {
         if(typeof click == "undefined" & config.auto==false)
             return;
     
@@ -144,5 +144,6 @@ $.fn.simplecarousel = function( params ) {
         setTimeout(function() {
             slide('next');
         }, config.auto);
+	return this;
 }
 })(jQuery);
